@@ -143,3 +143,27 @@ header p {
   margin-top: -20px;
   transition: 200ms ease-in-out;
 }
+
+@media (max-width: 1000px) {
+  .menu {
+    display: block;
+  }
+  .nav_list {
+    display: none;
+  }
+}
+
+@media (min-width: 1000px) {
+  .menu {
+    display: none;
+  }
+  .nav_list {
+    display: flex;
+  }
+}
+
+@media (max-width: 500px) {
+  body {
+    padding: 10px 2% 0 2%;
+  }
+}
