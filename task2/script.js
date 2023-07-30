@@ -1,3 +1,4 @@
+//sample data
 const data = [
   {
     name: "Product 1",
@@ -37,13 +38,13 @@ const data = [
   },
 ];
 
+//function to apply filters
 const applyFilters = () => {
-  const categoryFilter = document.getElementById("category").value;
+  const categoryFilter = document.getElementById("category").value; // get value of filter
 
-  if (categoryFilter === "") return displayItems(data);
+  if (categoryFilter === "") return displayItems(data); //if to show all items return from here
 
-  console.log(categoryFilter);
-
+  // filter logic
   const filteredItems = data?.filter((item) => {
     return (
       item.category === categoryFilter ||
@@ -54,6 +55,7 @@ const applyFilters = () => {
   displayItems(filteredItems);
 };
 
+//function to display the data, gets the data in params
 const displayItems = (items) => {
   const itemList = document.getElementById("List");
   itemList.innerHTML = "";
@@ -65,8 +67,16 @@ const displayItems = (items) => {
   });
 };
 
+// apply filter on button click
 document.getElementById("filter").addEventListener("click", () => {
   applyFilters();
+});
+
+// apply filter on enter
+document.addEventListener("keypress", (e) => {
+  if (e.key === "Enter") {
+    applyFilters();
+  }
 });
 
 displayItems(data);
